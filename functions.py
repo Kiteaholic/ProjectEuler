@@ -10,7 +10,10 @@ def factorise(n):
         if i > n:
             break
     return l
+
+
 import math
+
 def is_prime(n):
     if n == 1:
         return False
@@ -21,27 +24,37 @@ def is_prime(n):
     if n < 9:
         return True
     else:
-        r = math.floor(math.sqrt(n)
+        r = math.floor(math.sqrt(n))
         f = 5
-        while f <= r
+        while f <= r:
             if n % f == 0:
                 return False
-                    
+            if n % (f + 2) == 0:
+                return False
+            f += 6
+        return True                     
 
 
 
 
 def sieve_of_eratosthenes(n):
-    sieve = [True for _ in range(n - 1) ]
-    sieve[0] = [False]
-    for item in enumeratesieve:
+    primes = []
+    if n < 2:
+        return []
+    sieve = [False] * (n)
+    sieve[0] = True     # 0 ist keine Primzahl
+    sieve[1] = True     # 1 ist keine Primzahl
+    for i in range(int(math.sqrt(n)) + 1):
+        if not sieve[i]:
+            primes.append(i)
+            j = (i * i)
+            while j < n:
+                sieve[j] = True
+                j += i
+    for i in range(int(math.sqrt(n)) + 1, n):
+        if not sieve[i]:
+            primes.append(i) 
+    return primes                                
 
 
 
-    
-    return sieve    
-
-
-
-
-print(sieve_of_eratosthenes(10))
