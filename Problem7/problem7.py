@@ -4,4 +4,19 @@
 #
 #What is the 10 001st prime number?
 
+def is_prime(list, num):
+    for prime in list:
+        if num % prime == 0:
+            return False
+    return True
 
+
+primes = []
+count = 2
+while len(primes) < 10001:
+    if is_prime(primes, count):
+        primes.append(count)
+    count += 1
+
+print(primes)
+print(primes[-1])
