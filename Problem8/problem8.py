@@ -36,19 +36,17 @@ digit_count = 13
 for i in digit:
     i = int(i)
     temp_product = 1
-    if len(factors) < digit_count:
+    if i == 0:
+        factors.clear()
+    elif len(factors) < digit_count:
         factors.append(i)
     elif len(factors) == digit_count:
-        if i == 0:
-            factors.clear()
-        else:
-            factors.append(i)
-            factors.pop(0)
-            for i in factors:
-                temp_product *= i
-            if temp_product > product:
-                product = temp_product
-                digits = factors
-                print(digits)
+        factors.append(i)
+        factors.pop(0)
+        for i in factors:
+            temp_product *= i
+        if temp_product > product:
+            product = temp_product
+            digits = factors
+            print(digits)
 print(product)
-print(digits)
