@@ -10,6 +10,25 @@ def factorise(n):
         if i > n:
             break
     return l
+import math
+def is_prime(n):
+    if n == 1:
+        return False
+    if n < 4:
+        return True
+    if n % 2 == 0:
+        return False
+    if n < 9:
+        return True
+    else:
+        r = math.floor(math.sqrt(n)
+        f = 5
+        while f <= r
+            if n % f == 0:
+                return False
+                    
+
+
 
 
 def sieve_of_eratosthenes(n):
