@@ -18,10 +18,27 @@ def factorise(n):
     return l
 
 factors = []
+dict = {}
 for i in range(2,20):
    factors.append(factorise(i))
-# for fact in factors:
+
+for fact in factors:
+    for i in fact:
+        if i in dict:
+            if fact.count(i) > dict[i]:
+                dict[i] = fact.count(i)
+        else:
+            dict[i] = fact.count(i)
+
+
 
 
 print(factors)
+print(dict)
+
+sum = 1
+
+for key, value in dict.items():
+    sum *= key ** value
+print(sum)
 
