@@ -52,4 +52,48 @@ grid = [
 [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ]
 
+print(grid[0][0])
+print(grid[19][19])
 print(grid)
+
+max = 20
+max -= 1
+
+product = 1
+
+diag = 0
+vert = 0
+hor = 0
+diagrev = 0
+
+for i in range(20):
+    for j in range(20):
+        if i < (max - 2):
+            vert = grid[i][j] * grid[i + 1][j] * grid[i + 2][j] * grid[i + 3][j]
+        if j < (max - 2):
+            hor = grid[i][j] * grid[i][j + 1] * grid[i][j + 2] * grid[i][j + 3]           
+        if i < (max - 2) & j < (max - 3):
+            diag = grid[i][j] * grid[i + 1][j + 1] * grid[i + 2][j + 2] * grid[i + 3][j + 3]
+        if i < (max - 2) & j > 2 :
+            diagrev  = grid[i][j] * grid[i + 1][j - 1] * grid[i + 2][j - 2] * grid[i + 3][j - 3] 
+        if hor > product:
+            product = hor
+        if vert > product:
+            product = vert
+        if diag > product:
+            product = diag
+        if diagrev > product:
+            product = diagrev
+
+
+print(product)
+        
+
+
+
+
+
+
+
+
+
